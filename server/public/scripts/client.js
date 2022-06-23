@@ -17,7 +17,7 @@ function getGuesses() {
         currentGuess: Number($('#player-one').val()),
     };
     //check to see if currentGuess is showing
-    console.log(currentGuess.currentGuess);
+    console.log(`this is the currentGuess:`, currentGuess.currentGuess);
     // AJAX => server.js
     $.ajax({
         url: '/history',
@@ -26,9 +26,25 @@ function getGuesses() {
     })
         .then(function (response) {
             console.log(response); //CREATED
+            clearInputs();
         })
         .catch(function (error) {
             console.log(error);
             alert('ERROR in POST /history');
         });
 }
+//clearItems function
+function clearInputs() {
+    $('input').val('');
+}
+
+function getArrayfromServer (){
+    $.ajax({
+        url:'/history',
+        method: 'GET',
+    })
+    .then(function (response){
+        console.log('array from server', response); //test the array begin GET from SEVER
+    })
+}
+getArrayfromServer();
