@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Guess A Number!</title>
-  <script src="vendors/jquery.min.js"></script>
-  <script src="scripts/client.js"></script>
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-</head>
-<body>
-    <h1>YOUR GAME HERE!</h1>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Guess A Number!</title>
+        <script src="vendors/jquery.min.js"></script>
+        <script src="scripts/client.js"></script>
+        <link rel="stylesheet" href="styles/styles.css" />
+        <link
+            rel="shortcut icon"
+            href="images/favicon.ico"
+            type="image/x-icon"
+        />
+    </head>
+    <body>
+      <header>
+        <h1 id="winner">PLAYER WHO WON</h1>
+      </header>
+        <main>
+            <h1>YOUR GAME HERE!</h1>
+            <label for="avery">Avery Guess</label>
+            <input type="number" class="guess" id="avery" name="avery" />
+
+            <label for="tim">Tim Guess</label>
+            <input type="number" class="guess" id="tim" name="tim" />
+
+            <label for="todd">todd Guess</label>
+            <input type="number" class="guess" id="todd" name="todd" />
+
+            <label for="nate">Nate Guess</label>
+            <input type="number" class="guess" id="nate" name="nate" />
+            <br />
+            <button id="submit">Submit Guesses</button>
+        </main>
+    </body>
 </html>
