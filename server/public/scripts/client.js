@@ -18,4 +18,17 @@ function getGuesses() {
     };
     //check to see if currentGuess is showing
     console.log(currentGuess.currentGuess);
+    // AJAX => server.js
+    $.ajax({
+        url: '/history',
+        method: 'POST',
+        data: currentGuess,
+    })
+        .then(function (response) {
+            console.log(response); //CREATED
+        })
+        .catch(function (error) {
+            console.log(error);
+            alert('ERROR in POST /history');
+        });
 }

@@ -16,8 +16,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('server/public'));
 
 // GET & POST Routes go here
-
-
+// POST request
+app.post('/history', (req, res) => {
+    //where is the quote?
+    console.log('POST /history', req.body); //4. req.body is the data sent from the client => server
+    //5. save our quote...
+    guessListOne.push(req.body);
+    // check our array
+    console.log(guessListOne);
+    //6. send back response...
+    res.sendStatus(201); //201 is a good response 'I created something! Yay'
+});
 
 app.listen(PORT, () => {
     console.log('Server is running on port', PORT);
