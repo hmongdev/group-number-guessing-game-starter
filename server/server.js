@@ -29,11 +29,8 @@ app.post('/history', (req, res) => {
 });
 
 app.get('/history', (req, res) => {
-res.send( guessListOne );
+    res.send(guessListOne);
 });
-
-
-
 
 app.listen(PORT, () => {
     console.log(`Server is running on port`, PORT);
@@ -45,6 +42,7 @@ app.listen(PORT, () => {
 let randomNumber = Math.ceil(Math.random() * 25);
 console.log(`Random number:`, randomNumber);
 
+// we left off here
 function compareGuesses(array) {
     // check our array
     console.log(`array:`, array[0]);
@@ -65,7 +63,6 @@ function compareGuesses(array) {
     console.log(toReturn);
     console.log(`guessListOne`, guessListOne[0].currentGuess);
     return toReturn;
-  }
-
+}
 
 compareGuesses(guessListOne);
