@@ -30,6 +30,10 @@ app.get('/history', (req, res) => {
     res.send(guessListOne);
 });
 
+app.get('/random', (req, res) => {
+    res.send(randomNumber);
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on port`, PORT);
 });
@@ -39,5 +43,3 @@ app.listen(PORT, () => {
 // generate random number
 let randomNumber = Math.ceil(Math.random() * 25);
 console.log(`Random number:`, randomNumber);
-
-
