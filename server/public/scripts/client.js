@@ -14,10 +14,11 @@ function handleReady() {
 function getGuesses() {
     //grab the guess
     const currentGuess = {
-        currentGuess: Number($('#player-one').val()),
+        //remove Number
+        guess: $('#player-one').val(),
     };
     //check to see if currentGuess is showing
-    console.log(`this is the currentGuess:`, currentGuess.currentGuess);
+    console.log(`this is the currentGuess:`, currentGuess.guess);
     // AJAX => server.js
     $.ajax({
         url: '/history',
@@ -38,13 +39,36 @@ function clearInputs() {
     $('input').val('');
 }
 
-function getArrayfromServer (){
+function getArrayfromServer(array) {
     $.ajax({
-        url:'/history',
+        url: '/history',
         method: 'GET',
-    })
-    .then(function (response){
-        console.log('array from server', response); //test the array begin GET from SEVER
-    })
+      }).then(function (array) {
+        console.log('array from server', array); //test the array begin GET from SERVER
+        compareGuesses(array);
+    });
 }
 getArrayfromServer();
+
+// issue: logic wasn't returning a message
+function compareGuesses(array) {
+  check our array
+  console.log(`array:`, array[0]);
+  let toReturn = '';
+  let lastGuess = array.length - 1;
+  //equal to randomNumber
+  if (array[lastGuess] === randomNumber) {
+      toReturn = `It's working!`;
+  }
+  //greater than randomNumber
+  if (array[lastGuess] > randomNumber) {
+      toReturn = `Your number is too high`;
+  }
+  // less than randomNumber
+  if (array[lastGuess] < randomNumber) {
+      toReturn = `Your number is too low`;
+  }
+  console.log(toReturn);
+  console.log(`guessListOne`, guessListOne[0]);
+  return toReturn;
+}
